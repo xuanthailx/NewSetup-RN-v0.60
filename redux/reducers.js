@@ -1,3 +1,4 @@
+import {combineReducers} from 'redux';
 import {ADD_TODO} from './actionTypes';
 
 const INITIALSTATE = {
@@ -16,4 +17,8 @@ const countReducer = (state = INITIALSTATE, action) => {
   }
 };
 
-export default countReducer;
+const rootReducer = combineReducers({
+  count: countReducer,
+});
+
+export default rootReducer;

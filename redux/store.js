@@ -12,16 +12,12 @@
 // export default configureStore;
 
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
-import countReducer from '../redux/reducers';
+import rootReducer from '../redux/reducers';
 import createSagaMiddleware from 'redux-saga';
 import rootSaga from './saga';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const sagaMiddleware = createSagaMiddleware();
-
-const rootReducer = combineReducers(
-    { count: countReducer }
-);
 
 const enhancer = composeEnhancers(
     applyMiddleware(sagaMiddleware),
